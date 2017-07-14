@@ -8,4 +8,39 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="btn">
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_height">60px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="btn_info" parent="btn">
+        <item name="android:background">@drawable/btn_info</item>
+    </style>
+
+    <style name="btn_ghost" parent="btn">
+        <item name="android:background">@drawable/ghost_btn</item>
+    </style>
+
+    <style name="editText_bordered_bottom">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textColorHint">#888</item>
+        <item name="android:background">@drawable/border_bottom</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="editTextError">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/errorColor</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
 </resources>

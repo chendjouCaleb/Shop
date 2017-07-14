@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:padding="0dp"
     android:id="@+id/root_layout"
-    tools:context="fr.shop.HomeActivity">
+    android:fillViewport="true"
+    tools:context="fr.shop.activity.HomeActivity">
     <LinearLayout
         android:padding="30dp"
-        android:background="#80000000"
+        android:layout_margin="0dp"
+        android:background="#99000000"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,39 +26,47 @@
             android:text="AEZ"/>
 
         <TextView
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#fff"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="70dp"
             android:textAlignment="center"
-            android:text="Vente électronique d'appareils électronique"/>
+            android:textAllCaps="true"
+            android:text="Vente électronique d'appareils électroniques"/>
 
-        <Button
-            android:id="@+id/signin_btn"
-            android:layout_width="match_parent"
-            android:background="@drawable/btn_info"
-            android:textColor="#fff"
-            android:text="CONNEXION"
-            android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:layout_marginTop="50dp"
+                android:layout_height="wrap_content">
 
-        <TextView
+                <Button
+                    style="@style/btn_info"
+                    android:id="@+id/signin_btn"
+                    android:text="CONNEXION"
+                    />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:textSize="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:textAlignment="center"
-            android:text="OU"/>
+                <TextView
+                    android:id="@+id/result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:textAlignment="center"
+                    android:text="OU"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:background="@drawable/ghost_btn"
-            android:textColor="#fff"
-            android:text="INSCRIPTION"
-            android:layout_height="wrap_content" />
+                <Button
+                    style="@style/btn_ghost"
+                    android:id="@+id/register"
+                    android:text="INSCRIPTION"
+                     />
+            </LinearLayout>
         </LinearLayout>
-</RelativeLayout>
+</ScrollView>

@@ -1,19 +1,24 @@
 package fr.shop;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
+import android.view.View;
+import android.view.WindowManager;
 
 /**
  * Created by Chendjou on 29/06/2017.
  */
 
 public class BlurBuilder {
-        private static final float BITMAP_SCALE = 0.4f;
-        private static final float BLUR_RADIUS = 20.5f;
+        private static final float BITMAP_SCALE = 0.2f;
+        private static final float BLUR_RADIUS = 25f;
 
         public static Bitmap blur(Context context, Bitmap image) {
             int width = Math.round(image.getWidth() * BITMAP_SCALE);
@@ -32,6 +37,15 @@ public class BlurBuilder {
             tmpOut.copyTo(outputBitmap);
 
             return outputBitmap;
+        }
+
+        public static void blurBackgroundWiew(Activity activity, View view){
+
+            activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            Bitmap originalBitmap = BitmapFactory.decodeResource(activity.getResources(), R.drawable.maxresdefault);
+            Bitmap blurredBitmap = BlurBuilder.blur( activity, originalBitmap );
+            view.setBackground(new BitmapDrawable(activity.getResources(), blurredBitmap));
         }
 
 }

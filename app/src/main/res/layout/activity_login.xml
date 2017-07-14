@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:background="#90000000"
+        android:layout_alignBottom="@+id/title_bar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:layout_height="wrap_content">
+            <EditText
+                style="@style/editText_bordered_bottom"
+                android:hint="Adresse électronique"
+                android:inputType="textEmailAddress"
+                android:layout_margin="5dp"/>
+            <TextView
+                style="@style/editTextError"/>
+
+            <EditText
+                style="@style/editText_bordered_bottom"
+                android:layout_width="match_parent"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:layout_margin="5dp" />
+
+            <TextView
+                style="@style/editTextError"/>
+
+            <Button
+                style="@style/btn_info"
+                android:id="@+id/signin_btn"
+                android:text="CONNEXION"
+                android:layout_marginTop="25dp" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:background="#000000"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/prev_btn"
+            android:text="prev"
+            android:textColor="#fff"
+            android:background="#000000"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/activity_title"
+            android:textColor="#fff"
+            android:text="Connexion"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

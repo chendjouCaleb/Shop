@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:background="#90000000"
+        android:layout_alignBottom="@+id/title_bar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="100dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="50dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/EditTextName"
+                style="@style/editText_bordered_bottom"
+                android:hint="Nom"
+                android:inputType="text"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/EditTextNameError"
+                style="@style/editTextError"/>
+
+            <EditText
+                android:id="@+id/EditTextSurname"
+                style="@style/editText_bordered_bottom"
+                android:hint="Prénom"
+                android:inputType="text"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/EditTextSurnameError"
+                style="@style/editTextError"/>
+
+
+            <EditText
+                android:id="@+id/EditTextEmail"
+                style="@style/editText_bordered_bottom"
+                android:hint="Adresse électronique"
+                android:inputType="textEmailAddress"
+                android:layout_margin="10dp"/>
+            <TextView
+                style="@style/editTextError"/>
+
+            <EditText
+                android:id="@+id/EditTextPassword"
+                style="@style/editText_bordered_bottom"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:layout_margin="10dp" />
+
+            <TextView
+                android:id="@+id/EditTextPasswordError"
+                style="@style/editTextError"/>
+
+            <EditText
+                android:id="@+id/EditTextPasswordConfirmation"
+                style="@style/editText_bordered_bottom"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:layout_margin="10dp" />
+
+            <TextView
+                android:id="@+id/EditTextPasswordConfirmationError"
+                style="@style/editTextError"/>
+            <Button
+                style="@style/btn_ghost"
+                android:id="@+id/signin_btn"
+                android:text="S'INSCRIRE"
+                android:layout_marginTop="40dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:background="#000000"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/prev_btn"
+            android:text="prev"
+            android:textColor="#fff"
+            android:background="#000000"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/activity_title"
+            android:textColor="#fff"
+            android:text="Inscription"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

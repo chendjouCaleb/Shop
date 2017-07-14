@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Shop</string>
+    <string name="api_user">http://localhost:9000/api/users/</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <string name="back_icon">&#xE012;</string>
 </resources>
