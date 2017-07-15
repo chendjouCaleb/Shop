@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_shop" default="compile.module.shop">
+  <dirname property="module.shop.basedir" file="${ant.file.module_shop}"/>
+  
+  <property name="module.jdk.home.shop" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.shop" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.shop" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.shop" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="shop.output.dir" value="${module.shop.basedir}/build/classes/production/Shop"/>
+  <property name="shop.testoutput.dir" value="${module.shop.basedir}/build/classes/test/Shop"/>
+  
+  <path id="shop.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="shop.module.production.classpath">
+    <path refid="${module.jdk.classpath.shop}"/>
+  </path>
+  
+  <path id="shop.runtime.production.module.classpath">
+    <pathelement location="${shop.output.dir}"/>
+  </path>
+  
+  <path id="shop.module.classpath">
+    <path refid="${module.jdk.classpath.shop}"/>
+    <pathelement location="${shop.output.dir}"/>
+  </path>
+  
+  <path id="shop.runtime.module.classpath">
+    <pathelement location="${shop.testoutput.dir}"/>
+    <pathelement location="${shop.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.shop">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.shop">
+    <patternset refid="excluded.from.module.shop"/>
+  </patternset>
+  
+  
+  <target name="compile.module.shop" depends="compile.module.shop.production,compile.module.shop.tests" description="Compile module Shop"/>
+  
+  <target name="compile.module.shop.production" depends="register.custom.compilers" description="Compile module Shop; production classes"/>
+  
+  <target name="compile.module.shop.tests" depends="register.custom.compilers,compile.module.shop.production" description="compile module Shop; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.shop" description="cleanup module">
+    <delete dir="${shop.output.dir}"/>
+    <delete dir="${shop.testoutput.dir}"/>
+  </target>
+</project>

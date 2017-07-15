@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="shop" default="all">
+  
+  
+  <property file="shop.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.ear"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.android-android-25.classpath">
+    <pathelement location="C:/Users/Chendjou/AppData/Local/Android/sdk/platforms/android-25/android.jar"/>
+  </path>
+  
+  <path id="library.animated-vector-drawable-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/b57f4db1800e7454a3a9154c2685bb7fd2476491/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/b57f4db1800e7454a3a9154c2685bb7fd2476491/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.appcompat-v7-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/eb37e390cbc54e791ccb88819cd8e9892d9b2ded/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/eb37e390cbc54e791ccb88819cd8e9892d9b2ded/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.constraint-layout-1.0.0-alpha7.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/f176ccdd8bf636777166337d0c121ff0319e61d7/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/f176ccdd8bf636777166337d0c121ff0319e61d7/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.constraint-layout-solver-1.0.0-alpha7.classpath">
+    <pathelement location="C:/Users/Chendjou/AppData/Local/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-alpha7/constraint-layout-solver-1.0.0-alpha7.jar"/>
+  </path>
+  
+  <path id="library.converter-gson-2.1.0.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"/>
+  </path>
+  
+  <path id="library.design-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/8fcc6cc0f629256fc3bc622e45c2b836f1f13e11/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/8fcc6cc0f629256fc3bc622e45c2b836f1f13e11/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.espresso-core-2.2.2.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/f51325c44ec69b28c1e7dba0eae37be42acdad5c/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/f51325c44ec69b28c1e7dba0eae37be42acdad5c/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.espresso-idling-resource-2.2.2.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/944e3b556b1e8e014bb9a82dbca7b8922069304e/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/944e3b556b1e8e014bb9a82dbca7b8922069304e/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.exposed-instrumentation-api-publish-0.5.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/03b779a212ebca6e0037e6d5234543cbd76ec134/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/03b779a212ebca6e0037e6d5234543cbd76ec134/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gson-2.7.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"/>
+  </path>
+  
+  <path id="library.hamcrest-core-1.3.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.hamcrest-integration-1.3.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar"/>
+  </path>
+  
+  <path id="library.hamcrest-library-1.3.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar"/>
+  </path>
+  
+  <path id="library.javawriter-2.1.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar"/>
+  </path>
+  
+  <path id="library.javax.annotation-api-1.2.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"/>
+  </path>
+  
+  <path id="library.javax.inject-1.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"/>
+  </path>
+  
+  <path id="library.jsr305-2.0.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"/>
+  </path>
+  
+  <path id="library.junit-4.12.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.multidex-1.0.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/7b4b4b44bc572887ad61b2eb482e0cf14c5913e9/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/7b4b4b44bc572887ad61b2eb482e0cf14c5913e9/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.multidex-instrumentation-1.0.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/01084e8e6bb9d8184a93fddac3e946f432221077/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/01084e8e6bb9d8184a93fddac3e946f432221077/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.okhttp-3.3.0.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"/>
+  </path>
+  
+  <path id="library.okio-1.8.0.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"/>
+  </path>
+  
+  <path id="library.recyclerview-v7-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/2be33120bd76bd7f140e97f13ca690116c550d93/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/2be33120bd76bd7f140e97f13ca690116c550d93/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.retrofit-2.1.0.classpath">
+    <pathelement location="C:/Users/Chendjou/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"/>
+  </path>
+  
+  <path id="library.rules-0.5.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/a027b7165a41ddfc0f4441514da22617abd9c38b/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/a027b7165a41ddfc0f4441514da22617abd9c38b/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.runner-0.5.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/1b41865ba0be093121348949d40ef22ffc845dee/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/1b41865ba0be093121348949d40ef22ffc845dee/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.support-compat-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/bc92c7dc2e83641e27ddc5ce52526c4a20dd74d7/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/bc92c7dc2e83641e27ddc5ce52526c4a20dd74d7/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.support-core-ui-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/f64dc92c8f71836b3dd19ce0d643c5cb8d953352/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/f64dc92c8f71836b3dd19ce0d643c5cb8d953352/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.support-vector-drawable-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/024b6bcb13b8bf13f997ba3ed2e4e4e5c0a42086/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/024b6bcb13b8bf13f997ba3ed2e4e4e5c0a42086/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.transition-25.3.1.classpath">
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/cc12e21de2b3205f073ab62eadcbbb8fdfa30e59/output/res"/>
+    <pathelement location="C:/Users/Chendjou/.android/build-cache/cc12e21de2b3205f073ab62eadcbbb8fdfa30e59/output/jars/classes.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/app/module_app.xml"/>
+  
+  <import file="${basedir}/module_shop.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.app, clean.module.shop" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.app, compile.module.shop" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

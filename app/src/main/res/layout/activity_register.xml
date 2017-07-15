@@ -51,6 +51,7 @@
                 android:inputType="textEmailAddress"
                 android:layout_margin="10dp"/>
             <TextView
+                android:id="@+id/EditTextEmailError"
                 style="@style/editTextError"/>
 
             <EditText
@@ -67,16 +68,18 @@
             <EditText
                 android:id="@+id/EditTextPasswordConfirmation"
                 style="@style/editText_bordered_bottom"
-                android:hint="Mot de passe"
+                android:hint="Confirmer votre mot de passe"
+                android:text="fd"
                 android:inputType="textPassword"
                 android:layout_margin="10dp" />
 
             <TextView
                 android:id="@+id/EditTextPasswordConfirmationError"
+                android:text="cof"
                 style="@style/editTextError"/>
             <Button
                 style="@style/btn_ghost"
-                android:id="@+id/signin_btn"
+                android:id="@+id/register_btn"
                 android:text="S'INSCRIRE"
                 android:layout_marginTop="40dp" />
 

@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProfilActivity"
+            android:name=".activity.ProfilActivity"
             android:label="profil" />
         <activity
             android:name=".activity.RegisterActivity"

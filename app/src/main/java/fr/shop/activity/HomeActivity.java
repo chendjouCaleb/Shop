@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import fr.shop.BlurBuilder;
-import fr.shop.ProfilActivity;
 import fr.shop.R;
 
 

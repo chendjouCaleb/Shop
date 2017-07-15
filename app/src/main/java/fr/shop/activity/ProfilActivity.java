@@ -1,11 +1,14 @@
-package fr.shop;
+package fr.shop.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import fr.shop.CustomView.RoundedImageView;
+import fr.shop.R;
 import fr.shop.entity.User;
 import fr.shop.repository.UserRepository;
 import retrofit2.Call;
@@ -21,9 +24,13 @@ public class ProfilActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profil);
+        setContentView(R.layout.activity_profil);}
+        View root = findViewById(R.id.root_layout);
+    ImageView img = new RoundedImageView(this.getApplicationContext());
 
-        final TextView name = (TextView) findViewById(R.id.name);
+
+
+        /*final TextView name = (TextView) findViewById(R.id.name);
         final TextView surname = (TextView) findViewById(R.id.surname);
         final TextView email = (TextView) findViewById(R.id.email);
         final TextView date = (TextView) findViewById(R.id.date);
@@ -62,7 +69,7 @@ public class ProfilActivity extends Activity {
                 }
             }
         });
-
+*/
 
     }
-}
+
