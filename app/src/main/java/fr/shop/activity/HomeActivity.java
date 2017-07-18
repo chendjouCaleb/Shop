@@ -34,7 +34,7 @@ public class HomeActivity extends Activity {
         signin_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent login = new Intent(HomeActivity.this, ProfilActivity.class);
+                Intent login = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(login);
             }
         });

@@ -1,6 +1,5 @@
 package fr.shop.form;
 
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -8,10 +7,22 @@ import android.widget.TextView;
 import java.util.HashMap;
 import java.util.Map;
 
+import fr.shop.entity.User;
+import fr.shop.repository.api.UserRepository;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RegisterForm {
     private Map<EditText, String> errors = new HashMap<EditText, String>();
-    private static final String NAME_REGEX = "^[a-zA-Z]+$";
+
+    public void setErrors(Map<EditText, String> errors) {
+        this.errors = errors;
+    }
+
+    private static final String NAME_REGEX = "^[a-zA-Zéçàèù]{3,}[ ]?[a-zA-Zéçàèù]*$";
     public void validName(EditText editText, TextView errorText){
+        removeError(editText);
         String name = getText(editText);
         if(name != null){
             if(name.length() < 3){
@@ -26,6 +37,7 @@ public class RegisterForm {
     }
 
     public void validSurname(EditText editText, TextView errorText){
+        removeError(editText);
         String name = getText(editText);
         if(name != null){
             if(name.length() < 3) {
@@ -38,9 +50,12 @@ public class RegisterForm {
     }
     private static final String EMAIL_REGEX = "^[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z]{2,6}$";
     public void validEmail(EditText editText, TextView errorText){
+        removeError(editText);
         String email = getText(editText);
         if(email != null && email.trim().length() != 0){
-            if(!email.matches(EMAIL_REGEX)){
+            if(email.matches(EMAIL_REGEX)){
+                emailIsUsed(email,editText);
+            }else{
                 errors.put(editText, "Veuillez renseignez une adresse électronique valide");
             }
         }else{
@@ -49,7 +64,8 @@ public class RegisterForm {
         showError(editText, errorText);
     }
 
-    public void validPasswordOne(EditText editText, TextView errorText){
+    public void validPassword(EditText editText, TextView errorText){
+        removeError(editText);
         String password = getText(editText);
         if(password != null){
             if(password.length() < 8){
@@ -63,6 +79,7 @@ public class RegisterForm {
     }
 
     public void validPasswordConf(EditText editText1, EditText editTextConf, TextView errorText){
+        removeError(editTextConf);
         String password = getText(editText1);
         String passwordConf = getText(editTextConf);
         if(passwordConf == null) {
@@ -98,6 +115,31 @@ public class RegisterForm {
             }
         }else{
             errorText.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void emailIsUsed(String email, final EditText text){
+        removeError(text);
+        UserRepository userRepository = new UserRepository();
+        userRepository.findByEmail(email, new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user = response.body();
+                if(user != null && user.getEmail() != null){
+                    errors.put(text, "Cet adresse électronique est déjà utilisé par: '" + user.getName()+ "'");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                //errors.put(text, "Erreur lors de la vérification de l'unicité de cet adresse réessayer plus tard.");
+            }
+        });
+    }
+    private void removeError(EditText text){
+        if(errors.containsKey(text)){
+            errors.remove(text);
+            text.setText("");
         }
     }
 }

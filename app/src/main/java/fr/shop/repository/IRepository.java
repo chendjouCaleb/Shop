@@ -6,7 +6,7 @@ package fr.shop.repository;
 
 public interface IRepository<T> {
     T findById(int id);
-    T save(Object obj);
-    T delete(Object obj);
-    T update(Object obj);
+    T save(T obj);
+    T delete(T obj);
+    T update(T obj);
 }

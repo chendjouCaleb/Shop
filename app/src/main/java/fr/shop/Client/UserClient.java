@@ -3,7 +3,11 @@ import java.util.List;
 
 import fr.shop.entity.User;
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -11,9 +15,25 @@ import retrofit2.http.Path;
  */
 
 public interface UserClient {
-    @GET("/api/users/{id}")
-    Call<List<User>> getById(@Path("id")int id);
+    @GET("/api/users/{email}")
+    Call<User> findByEmail(@Path("email")String email);
 
     @GET("/api/users/{id}")
     Call<User> findById(@Path("id")int id);
+
+    @POST("/api/users")
+    @FormUrlEncoded
+    Call<User> save(
+            @Field("name") String name,
+            @Field("surname") String surname,
+            @Field("email") String email,
+            @Field("password") String password
+    );
+
+    @POST("/api/users/auth")
+    @FormUrlEncoded
+    Call<User> findByEmailAndPassword(
+            @Field("email") String email,
+            @Field("password") String password
+    );
 }

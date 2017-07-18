@@ -43,4 +43,37 @@
         <item name="android:visibility">invisible</item>
     </style>
 
+    <style name="titleBarLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">#000000</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="titleBarButton">
+        <item name="android:textColor">#fff</item>
+        <item name="android:background">#000000</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="titleBarLabel">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="profilItem">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_column">1</item>
+        <item name="android:textColor">#fFF</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
 </resources>

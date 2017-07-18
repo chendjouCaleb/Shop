@@ -2,45 +2,73 @@ package fr.shop.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import fr.shop.BlurBuilder;
 import fr.shop.CustomView.TitleBar;
 import fr.shop.R;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import fr.shop.entity.User;
+import fr.shop.repository.api.UserRepository;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static fr.shop.activity.RegisterActivity.USER_ID;
 
 public class LoginActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Lato-Light.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
         setContentView(R.layout.activity_login);
         View root = findViewById(R.id.root_layout);
-        BlurBuilder.blurBackgroundWiew(this, root);
+        BlurBuilder.blurBackgroundWiew(this, root, R.drawable.maxresdefault);
 
-        Typeface SegoeMDL2Assets = Typeface.createFromAsset(getAssets(), "fonts/segoe-mdl2-assets.ttf");
         Button prevBtn = (Button) findViewById(R.id.prev_btn);
-        prevBtn.setTypeface(SegoeMDL2Assets);
-        prevBtn.setText(R.string.back_icon);
-        prevBtn.setOnClickListener(new View.OnClickListener() {
+        TitleBar titleBar = new TitleBar(this, prevBtn);
+        titleBar.handleBtn(this);
+
+        final EditText emailEdit = (EditText) findViewById(R.id.EditTextEmail);
+        final EditText passwordEdit = (EditText) findViewById(R.id.EditTextPassword);
+        final TextView textError = (TextView) findViewById(R.id.ConnectionError);
+        final Button submit = (Button) findViewById(R.id.loginBtn);
+
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                setResult(RESULT_OK, intent);
-                finish();
+                textError.setVisibility(View.VISIBLE);
+                textError.setText("");
+                String email = emailEdit.getText().toString().trim();
+                String password = passwordEdit.getText().toString().trim();
+                if(email == null || password == null){
+                    textError.setText("Veuillez renseigner votre adresse électronique et votre mot de passe");
+                    textError.setVisibility(View.VISIBLE);
+                }else{
+                    UserRepository userRepository = new UserRepository();
+                    userRepository.findByEmailAndPassword(email, password, new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            int id = response.body().getId();
+                            submit.setText("connection réussie");
+                            Intent profil = new Intent(LoginActivity.this, ProfilActivity.class);
+                            profil.putExtra(USER_ID, id);
+                            startActivity(profil);
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            textError.setText("Echec de la connection. Cause: " +t.getMessage());
+                            textError.setVisibility(View.VISIBLE);
+                        }
+                    });
+                }
             }
         });
+
 
 
     }

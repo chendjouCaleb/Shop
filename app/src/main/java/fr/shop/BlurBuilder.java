@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
@@ -17,7 +18,7 @@ import android.view.WindowManager;
  */
 
 public class BlurBuilder {
-        private static final float BITMAP_SCALE = 0.2f;
+        private static final float BITMAP_SCALE = 0.1f;
         private static final float BLUR_RADIUS = 25f;
 
         public static Bitmap blur(Context context, Bitmap image) {
@@ -39,11 +40,11 @@ public class BlurBuilder {
             return outputBitmap;
         }
 
-        public static void blurBackgroundWiew(Activity activity, View view){
+        public static void blurBackgroundWiew(Activity activity, View view, int img){
 
             activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            Bitmap originalBitmap = BitmapFactory.decodeResource(activity.getResources(), R.drawable.maxresdefault);
+            Bitmap originalBitmap = BitmapFactory.decodeResource(activity.getResources(), img);
             Bitmap blurredBitmap = BlurBuilder.blur( activity, originalBitmap );
             view.setBackground(new BitmapDrawable(activity.getResources(), blurredBitmap));
         }
