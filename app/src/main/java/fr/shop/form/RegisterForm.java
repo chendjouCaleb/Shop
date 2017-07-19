@@ -139,7 +139,6 @@ public class RegisterForm {
     private void removeError(EditText text){
         if(errors.containsKey(text)){
             errors.remove(text);
-            text.setText("");
         }
     }
 }

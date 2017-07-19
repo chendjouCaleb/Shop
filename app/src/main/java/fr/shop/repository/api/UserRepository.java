@@ -1,5 +1,10 @@
 package fr.shop.repository.api;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Formatter;
+
 import fr.shop.Client.UserClient;
 import fr.shop.R;
 import fr.shop.entity.User;
@@ -38,13 +43,9 @@ public class UserRepository{
         Retrofit retrofit = new Retrofit.Builder().baseUrl(API_URL).
                 addConverterFactory(GsonConverterFactory.create()).build();
         UserClient client = retrofit.create(UserClient.class);
-        Call<User> call = client.findByEmailAndPassword(email, password);
+        Call<User> call = client.findByEmailAndPassword(email, CryptToSHA256(password));
         call.enqueue(callback);
     }
-
-
-
-
 
     public void save(final User user, Callback<User> callback) {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(API_URL).
@@ -53,7 +54,7 @@ public class UserRepository{
         Call<User> call = client.save(user.getName(),
                 user.getSurname(),
                 user.getEmail(),
-                user.getPassword());
+                CryptToSHA256(user.getPassword()));
         call.enqueue(callback);
     }
 
@@ -65,5 +66,30 @@ public class UserRepository{
 
     public Object update(Object obj) {
         return null;
+    }
+    public String CryptToSHA256(String word){
+        String sha1 = null;
+        try{
+            MessageDigest crypt = MessageDigest.getInstance("SHA-256");
+            crypt.reset();
+            crypt.update(word.getBytes("UTF-8"));
+            sha1 = byteToHex(crypt.digest());
+        }catch(NoSuchAlgorithmException e){
+            e.printStackTrace();
+        }catch(UnsupportedEncodingException e){
+            e.printStackTrace();
+        }
+
+        return sha1;
+    }
+
+    private String byteToHex(final byte[] hash){
+        Formatter formatter = new Formatter();
+        for(byte b: hash){
+            formatter.format("%02x", b);
+        }
+        String result = formatter.toString();
+        formatter.close();
+        return result;
     }
 }

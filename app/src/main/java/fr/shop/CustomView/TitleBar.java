@@ -25,10 +25,10 @@ import static android.app.Activity.RESULT_OK;
 public class TitleBar{
     Button btn;
     TextView label;
-    Context context;
-    public TitleBar(Context context, Button btn){
+    Activity activity;
+    public TitleBar(Activity context, Button btn){
         this.btn = btn;
-        this.context = context;
+        this.activity = context;
     }
 
     public void handleBtn(final Activity activity){
@@ -43,6 +43,34 @@ public class TitleBar{
 
             }
         });
+    }
+
+    public void handleCartBtn(final Button btn){
+        btn.setText(R.string.cart_icon);
+        PersonnalFont.setFont(activity, btn, PersonnalFont.SEGOE_MDL2_ASSETS);
+        /*btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                activity.setResult(RESULT_OK, intent);
+                activity.finish();
+
+            }
+        });*/
+    }
+
+    public void handleMenuBtn(final Button btn){
+        btn.setText(R.string.menu_icon);
+        PersonnalFont.setFont(activity, btn, PersonnalFont.SEGOE_MDL2_ASSETS);
+       /* btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                activity.setResult(RESULT_OK, intent);
+                activity.finish();
+
+            }
+        });*/
     }
 
     private void handleLabel(){

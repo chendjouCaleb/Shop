@@ -3,5 +3,16 @@
     <string name="api_user">http://localhost:9000/api/users/</string>
     <string name="title_activity_login">Sign in</string>
 
-    <string name="back_icon">&#xE012;</string>
+    <string name="back_icon">&#xE26C;</string>
+    <string name="cart_icon">&#xE7BF;</string>
+    <string name="menu_icon">&#xEA37;</string>
+    <string name="plus_icon">&#xE109;</string>
+    <string name="check_icon">&#xE008;</string>
+    <string name="minus_icon">&#xE108;</string>
+    <string name="star_icon">&#xE012;</string>
+    <string name="star_fill_icon">&#xE00A;</string>
+    <string name="search_icon">&#xE1A3;</string>
+    <string name="delete_icon">&#xE107;</string>
+    <string name="shp_icon">&#xE14D;</string>
+    <string name="logout_icon">&#xE7E8;</string>
 </resources>
