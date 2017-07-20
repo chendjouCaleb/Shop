@@ -54,7 +54,7 @@ public class LoginActivity extends Activity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             int id = response.body().getId();
                             submit.setText("connection réussie");
-                            Intent profil = new Intent(LoginActivity.this, ProfilActivity.class);
+                            Intent profil = new Intent(LoginActivity.this, ShopActivity.class);
                             profil.putExtra(USER_ID, id);
                             startActivity(profil);
                         }

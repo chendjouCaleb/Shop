@@ -23,30 +23,10 @@
         android:layout_margin="10dp"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:id="@+id/menu"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
-
-            <TextView
-                style="@style/menu_item"
-                android:text="ordinateur"/>
-
-            <TextView
-                style="@style/menu_item"
-                android:background="@drawable/border_bottom_focuses"
-                android:text="Téléviseur"/>
-
-            <TextView
-                style="@style/menu_item"
-                android:text="Tablettes"/>
-
-            <TextView
-                style="@style/menu_item"
-                android:text="Téléphones"/>
-
-            <TextView
-                style="@style/menu_item"
-                android:text="Montres"/>
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -66,12 +46,16 @@
             android:textColor="#666"
             android:layout_height="wrap_content"
             />
-        <TextView
+        <EditText
+            android:id="@+id/text_filter"
+            android:inputType="text"
             android:layout_width="wrap_content"
-            android:textColor="#666"
+            android:textColor="#777"
             android:padding="10dp"
+            android:background="#00000000"
             android:gravity="center"
-            android:text="Rechercher un article"
+            android:hint="Rechercher un article"
+            android:textColorHint="#666"
             android:layout_height="wrap_content"
             />
     </LinearLayout>

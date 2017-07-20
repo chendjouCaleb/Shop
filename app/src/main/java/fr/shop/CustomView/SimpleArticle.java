@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import fr.shop.R;
+import fr.shop.entity.Article;
 
 /**
  * Created by Chendjou on 19/07/2017.
@@ -24,20 +26,12 @@ public class SimpleArticle extends LinearLayout {
     public int height;
     private Activity activity;
     private LinearLayout.LayoutParams textLayout ;
-    public SimpleArticle(Context context, Activity activity) {
+    private Article article;
+    public SimpleArticle(Context context, Activity activity, Article article) {
         super(context);
         setSize(activity.getWindowManager());
         this.activity = activity;
-        init();
-    }
-
-    public SimpleArticle(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    public SimpleArticle(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        this.article = article;
         init();
     }
 
@@ -51,11 +45,8 @@ public class SimpleArticle extends LinearLayout {
         );
         textLayout.setMargins(10,10,10,10);
 
-        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        p.setMargins(50,50,50,50);
+        GridLayout.LayoutParams p = new GridLayout.LayoutParams();
+        p.setMargins(10,10,10,10);
         this.setLayoutParams(p);
         this.setPadding(5,5,5,5);
 
@@ -69,14 +60,15 @@ public class SimpleArticle extends LinearLayout {
         Display display = windowManager.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        width = (size.x - 40)/2;
+        width = (size.x - 80)/2;
         height = (size.y -20)/3;
         //this.setMeasuredDimension(width, width);
     }
 
     private void addImage(){
         ImageView image = new ImageView(getContext());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width,height);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(width,width);
+        params.setMargins(0,0,0,0);
         image.setLayoutParams(params);
         image.setImageResource(R.drawable.hppavillon);
         image.setBackgroundResource(R.drawable.border_bottom_normal);
@@ -86,7 +78,7 @@ public class SimpleArticle extends LinearLayout {
     private void addName(){
         TextView name = new TextView(getContext());
         name.setTextColor(getResources().getColor(R.color.colorWhite));
-        name.setText("HPPAVILLON");
+        name.setText(article.getName());
         name.setTextAlignment(TEXT_ALIGNMENT_CENTER);
         PersonnalFont.setFont(activity,name, PersonnalFont.LATO_LIGHT);
         name.setLayoutParams(textLayout);
@@ -94,7 +86,7 @@ public class SimpleArticle extends LinearLayout {
     }
     private void addPrice(){
         TextView name = new TextView(getContext());
-        name.setText("245 000 FCFA");
+        name.setText(article.formatPrice());
         PersonnalFont.setFont(activity,name, PersonnalFont.LATO_BOLD);
         name.setTextAlignment(TEXT_ALIGNMENT_CENTER);
         name.setTextColor(getResources().getColor(R.color.colorWhite));

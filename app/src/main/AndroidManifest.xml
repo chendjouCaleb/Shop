@@ -18,9 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.HomeActivity">
+
+        </activity>
+        <activity android:name=".activity.ShopActivity">
+
         </activity>
 
-        <activity android:name=".activity.ShopActivity">
+        <activity android:name=".activity.ArticleDescriptionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

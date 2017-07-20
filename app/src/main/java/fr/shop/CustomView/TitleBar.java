@@ -31,6 +31,10 @@ public class TitleBar{
         this.activity = context;
     }
 
+    public TitleBar(Activity context){
+        this.activity = context;
+    }
+
     public void handleBtn(final Activity activity){
         btn.setText(R.string.back_icon);
         PersonnalFont.setFont(activity, btn, PersonnalFont.SEGOE_MDL2_ASSETS);
@@ -57,6 +61,42 @@ public class TitleBar{
 
             }
         });*/
+    }
+
+    public void handleLikeBtn(final Button btn){
+        btn.setText(R.string.star_icon);
+        PersonnalFont.setFont(activity, btn, PersonnalFont.SEGOE_MDL2_ASSETS);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn.setText(R.string.star_fill_icon);
+            }
+        });
+    }
+
+    public void handleTimeBtn(final Button btn){
+        btn.setText(R.string.time_icon);
+        PersonnalFont.setFont(activity, btn, PersonnalFont.SEGOE_MDL2_ASSETS);
+        /*btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn.setText(R.string.star_fill_icon);
+            }
+        });*/
+    }
+
+    public void handleprevBtn(final Button btn){
+        btn.setText(R.string.back_icon);
+        PersonnalFont.setFont(activity, btn, PersonnalFont.SEGOE_MDL2_ASSETS);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                activity.setResult(RESULT_OK, intent);
+                activity.finish();
+
+            }
+        });
     }
 
     public void handleMenuBtn(final Button btn){

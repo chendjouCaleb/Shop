@@ -9,10 +9,12 @@
     <string name="plus_icon">&#xE109;</string>
     <string name="check_icon">&#xE008;</string>
     <string name="minus_icon">&#xE108;</string>
-    <string name="star_icon">&#xE012;</string>
+    <string name="star_icon">&#xE224;</string>
     <string name="star_fill_icon">&#xE00A;</string>
     <string name="search_icon">&#xE1A3;</string>
     <string name="delete_icon">&#xE107;</string>
     <string name="shp_icon">&#xE14D;</string>
     <string name="logout_icon">&#xE7E8;</string>
+    <string name="out_icon">&#xE106;</string>
+    <string name="time_icon">&#xE121;</string>
 </resources>

@@ -75,7 +75,7 @@ public static final String USER_ID = "fr.shop.activity.USER_ID";
                         public void onResponse(Call<User> call, Response<User> response) {
                             int id = response.body().getId();
                             submit.setText("Enregistrement réussi");
-                            Intent profil = new Intent(RegisterActivity.this, ProfilActivity.class);
+                            Intent profil = new Intent(RegisterActivity.this, ShopActivity.class);
 
                             profil.putExtra(USER_ID, id);
                             startActivity(profil);
