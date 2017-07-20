@@ -11,8 +11,10 @@ import android.widget.TextView;
  */
 
 public class PersonnalFont {
-    public static String LATO_REGULAR = "Lato-Regular";
-    public static String LATO_LIGHT = "Lato-Light";
+    public static String LATO_REGULAR = "Lato-Regular.ttf";
+    public static String LATO_LIGHT = "Lato-Light.ttf";
+    public static String LATO_BOLD = "Lato-Bold.ttf";
+    public static String LATO = "Lato-Regular.ttf";
     public static String SEGOE_MDL2_ASSETS = "segoe-mdl2-assets.ttf";
 
     public static void setFont(Activity activity,TextView view, String font){

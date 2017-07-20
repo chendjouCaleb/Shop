@@ -93,36 +93,13 @@
         </LinearLayout> -->
 
         <GridLayout
+            android:id="@+id/article_grid"
             android:orientation="horizontal"
+            android:padding="10dp"
             android:columnCount="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:background="@drawable/article"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/hppavillon"
-                    android:background="@drawable/border_bottom_normal"
-                    android:layout_margin="10dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:textAlignment="center"
-                    android:padding="7dp"
 
-                    android:textColor="#fff"
-                    android:text="HP Pavillon 15"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:textAlignment="center"
-                    android:padding="7dp"
-                    android:textColor="#fff"
-                    android:text="245 000 FCFA"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
 
 
 
