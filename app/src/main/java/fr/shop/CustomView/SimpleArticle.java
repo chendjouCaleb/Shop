@@ -2,6 +2,7 @@ package fr.shop.CustomView;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.view.Display;
@@ -15,6 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import fr.shop.R;
+import fr.shop.activity.ArticleDescriptionActivity;
+import fr.shop.activity.RegisterActivity;
+import fr.shop.activity.ShopActivity;
 import fr.shop.entity.Article;
 
 /**
@@ -49,7 +53,7 @@ public class SimpleArticle extends LinearLayout {
         p.setMargins(10,10,10,10);
         this.setLayoutParams(p);
         this.setPadding(5,5,5,5);
-
+        this.addEvent();
         this.addImage();
         this.addName();
         this.addPrice();
@@ -92,6 +96,18 @@ public class SimpleArticle extends LinearLayout {
         name.setTextColor(getResources().getColor(R.color.colorWhite));
         name.setLayoutParams(textLayout);
         this.addView(name);
+    }
+
+    public void addEvent(){
+        this.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profil = new Intent(activity, ArticleDescriptionActivity.class);
+
+                //profil.putExtra(USER_ID, id);
+                activity.startActivity(profil);
+            }
+        });
     }
 
 
